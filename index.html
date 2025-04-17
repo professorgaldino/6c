@@ -111,3 +111,20 @@
     }
 
     function goPrev() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateViewer();
+      }
+    }
+
+    function goNext() {
+      if (currentIndex < pages.length - 1) {
+        currentIndex++;
+        updateViewer();
+      }
+    }
+
+    window.onload = updateViewer;
+  </script>
+</body>
+</html>
