@@ -84,6 +84,12 @@
       color: white;
     }
 
+    .page-selector button.active {
+      background: #007bff;
+      color: white;
+      font-weight: bold;
+    }
+
     iframe {
       flex: 1;
       border: none;
@@ -96,7 +102,7 @@
   <div style="text-align: center; padding: 10px; background-color: #e9ecef;">
     <button onclick="window.location.href='https://professorgaldino.github.io/6c/analise.html'" 
             style="background: #007bff; color: white; border: none; padding: 10px 20px; font-size: 16px; font-weight: bold; border-radius: 8px; cursor: pointer;">
-      📊 Análise da Sala
+      📊 Análise
     </button>
   </div>
 
@@ -136,7 +142,7 @@
       const pageNum = currentPage.match(/\d+/)[0];
       viewer.src = currentPage;
       pageNumber.textContent = "Página: " + pageNum;
-      highlightCurrentButton();
+      updatePageButtons();
     }
 
     function goPrev() {
@@ -153,15 +159,8 @@
       }
     }
 
-    function highlightCurrentButton() {
-      const buttons = pageSelector.querySelectorAll("button");
-      buttons.forEach((btn, idx) => {
-        btn.style.background = idx === currentIndex ? "#007bff" : "#fff";
-        btn.style.color = idx === currentIndex ? "#fff" : "#007bff";
-      });
-    }
-
     function createPageButtons() {
+      pageSelector.innerHTML = "";
       pages.forEach((page, index) => {
         const pageNum = page.match(/\d+/)[0];
         const button = document.createElement("button");
@@ -171,6 +170,14 @@
           updateViewer();
         });
         pageSelector.appendChild(button);
+      });
+      updatePageButtons();
+    }
+
+    function updatePageButtons() {
+      const buttons = pageSelector.querySelectorAll("button");
+      buttons.forEach((btn, idx) => {
+        btn.classList.toggle("active", idx === currentIndex);
       });
     }
 
