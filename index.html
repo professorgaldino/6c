@@ -68,6 +68,13 @@
 </head>
 <body>
 
+  <div style="text-align: center; padding: 10px; background-color: #e9ecef;">
+    <button onclick="window.location.href='https://professorgaldino.github.io/6a/analise.html'" 
+            style="background: #007bff; color: white; border: none; padding: 10px 20px; font-size: 16px; font-weight: bold; border-radius: 8px; cursor: pointer;">
+      📊 Análise da Sala
+    </button>
+  </div>
+
   <div class="nav">
     <button onclick="window.location.href='https://professorgaldino.github.io/sitetv/sala.html'">← Voltar para as salas</button>
 
@@ -104,21 +111,3 @@
     }
 
     function goPrev() {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateViewer();
-      }
-    }
-
-    function goNext() {
-      if (currentIndex < pages.length - 1) {
-        currentIndex++;
-        updateViewer();
-      }
-    }
-
-    updateViewer();
-  </script>
-
-</body>
-</html>
